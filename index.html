@@ -9,7 +9,7 @@
   </head>
   <style>
       body{
-background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/background-ppt-formal-7.jpg'); 
+background-image: url('https://i.pinimg.com/originals/35/c9/93/35c993258e4c0cdc4a0b55c3211180ab.jpg'); 
 background-size: cover;
 }
 
@@ -91,7 +91,7 @@ input[type=submit]:hover{
 
 @media screen and (max-width: 500px) {
     .body{
-        background-image: url('https://backgroundcheckall.com/wp-content/uploads/2017/12/background-ppt-formal-7.jpg'); 
+        background-image: url('https://i.pinimg.com/originals/35/c9/93/35c993258e4c0cdc4a0b55c3211180ab.jpg'); 
         background-size: cover;  
         background-repeat: no-repeat;
     }
@@ -122,25 +122,39 @@ input[type=submit]:hover{
      justify-content: center;
           text-justify: inter-word;
           text-align: center;
-       
-     
   }
  
   }
   </style>
+
+<script>
+  function validateForm() {
+    var x = document.forms["fForm"]["fname"].value;
+    if (x == "") {
+  document.getElementById("red").style.backgroundColor = "rgb(235, 133, 133)";
+    }
+    else
+    {
+      document.getElementById("red").style.backgroundColor = "rgba(220, 217, 245, 0.6)";
+    }
+  }
+  </script>
+
   <body>
       
   <div class="cont">
     <div class="head">
         Register with Us!
     </div>
-      <form action="Redirected_Page2.html">
+      <form name="fForm" action="Redirected_Page2.html">
+        <div class="rede" id="red">
           <div class="title">
             <label>First Name</label>
           </div>
           <div class="inp"> 
-              <input type="text" required placeholder="First Name">
+              <input type="text" name="fname" required placeholder="First Name">
         </div>
+      </div>
         <div class="title">
             <label>Last Name</label>
           </div>
@@ -177,7 +191,7 @@ input[type=submit]:hover{
               <textarea placeholder="Type your Message here...."></textarea>
         </div>
         <div>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" onclick="validateForm()">
         </div>
       </form>
   </div>
