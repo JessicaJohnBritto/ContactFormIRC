@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>International Relations Cell</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="/GYWS/assets/style1.css">
+</head>
+<body>
+
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text],input[type=password],input[type=email],#username, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  width:548px;
+
+}
+
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width:40%;
+  background-color: rgba(220, 217, 245, 0.6);
+}
+.head{
+    padding: 5px 2px 5px 2px;
+    margin: 50px auto;
+    justify-content: center;
+    text-align: center;
+    color: rgb(98, 14, 177);
+    font-size: 300%;
+    font-weight: 800;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 15px;
+}
+
+.alter{
+    justify-content: center;
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 600px) {
+ 
+  .head{
+      font-size: 30%;
+      word-wrap: break-word;
+       display: flex;
+  flex-wrap: wrap;
+  }
+  input[type=text],input[type=email], #username,#checkbox, input[type=password]{
+    font-size: 80%;
+    width:60%;
+    height:60%;
+     padding: 3px;
+     margin:5px 3px 5px 3px;
+     border: none;
+    word-wrap: break-word;
+     justify-content: center;
+          text-justify: inter-word;
+          text-align: center;
+  }
+ 
+  }
+    </style>
+
+<div class="container">
+  <div class="head"><h2>Register with Us!</h2></div>
+  <form action="register" method="post" class="needs-validation" novalidate>
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" class="form-control" id="first_name" placeholder="First Name" name="first_name" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="last_name">Last Name</label>
+      <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+     <div class="form-group">
+      <label for="username">User Name</label>
+      <input type="text" class="form-control col-sm" id="username" placeholder="User Name" name="user_name" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+     <div class="form-group">
+      <label for="email">Email ID</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group ">
+      <label for="password1">Password</label>
+      <input type="password" class="form-control" id="password1" placeholder="Password" name="password1" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="password2">Confirm Password</label>
+      <input type="password" class="form-control" id="password2" placeholder="Retype the password" name="password2" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+<br>
+    
+    <div class="form-group form-check" id="checkbox">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember" required> I agree on terms and conditions.
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Check this checkbox to continue.</div>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<br>
+<div class="alter"><p>Already have an account?<a href='accounts/login'><mark>Login</mark></a></p></div>
+<div>
+            {% for message in messages %}
+            <h3> {{messages}} </h3>
+            {% endfor %}
+        </div>
+
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+</body>
+</html>
